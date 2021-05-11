@@ -1,0 +1,72 @@
+{
+	"asd1" : {
+		"firebaseKey" : "asd1",
+		"channelId" : "asdf1",
+		"text" : "Today I jumped very high.",
+		"date" : "19:53:28",
+		"uid" : "12345"
+	},
+	"asd2" : {
+		"firebaseKey" : "asd2",
+		"channelId" : "asdf2",
+		"text" : "Found a new recipe today.",
+		"date" : "19:53:28",
+		"uid" : "67890"
+	},
+	"asd3" : {
+		"firebaseKey" : "asd3",
+		"channelId" : "asdf3",
+		"text" : "Anyone lose a sock?",
+		"date" : "19:53:28",
+		"uid" : "12345"
+	},
+	"asd4" : {
+		"firebaseKey" : "asd4",
+		"channelId" : "asdf4",
+		"text" : "What time are we meeting today?",
+		"date" : "19:53:28",
+		"uid" : "67890"
+	},
+	"asd5" : {
+		"firebaseKey" : "asd5",
+		"channelId" : "asdf5",
+		"text" : "Today we learned about PrivateRoutes.",
+		"date" : "19:53:28",
+		"uid" : "12345"
+	},
+	"asd6" : {
+		"firebaseKey" : "asd6",
+		"channelId" : "asdf1",
+		"text" : "This lilly pad is too small.",
+		"date" : "19:54:28",
+		"uid" : "67890"
+	},
+	"asd7" : {
+		"firebaseKey" : "asd7",
+		"channelId" : "asdf2",
+		"text" : "But there is still much to learn.",
+		"date" : "19:54:28",
+		"uid" : "12345"
+	},
+	"asd8" : {
+		"firebaseKey" : "asd8",
+		"channelId" : "asdf3",
+		"text" : "Looking for a room mate to split rent.",
+		"date" : "19:54:28",
+		"uid" : "67890"
+	},
+	"asd9" : {
+		"firebaseKey" : "asd9",
+		"channelId" : "asdf4",
+		"text" : "5:30PM?",
+		"date" : "19:54:28",
+		"uid" : "12345"
+	},
+	"asd10" : {
+		"firebaseKey" : "asd10",
+		"channelId" : "asdf5",
+		"text" : "Anyone else confused?",
+		"date" : "19:54:28",
+		"uid" : "67890"
+	}
+}
