@@ -21,7 +21,7 @@ const ModalContainer = () => {
 
   return (
     <div className='modal-container'>
-      <li className='nav-item channel-create' onClick={toggle}>Add Channel</li>
+      <div className='nav-item channel-create' onClick={toggle}>Add Channel</div>
       <Modal isOpen={modal} toggle={toggle} className='channel-form-modal'>
         <ModalHeader toggle={toggle}>Add Channel</ModalHeader>
         <ModalBody>

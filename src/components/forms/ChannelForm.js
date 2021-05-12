@@ -26,7 +26,6 @@ const ChannelForm = ({
       ...prevState,
       [e.target.name]: e.target.value
     }));
-    console.warn(e.target.name);
   };
 
   const handleSubmit = () => {

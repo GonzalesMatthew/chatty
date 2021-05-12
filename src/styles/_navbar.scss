@@ -7,7 +7,12 @@ ul.slackNav {
 ul.channel-list {
   padding-inline-start: 0px;
 }
+
 .channel-list {
   color: white;
   list-style-type: none;
+}
+
+.channel-list li {
+  cursor: pointer
 }

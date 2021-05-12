@@ -13,9 +13,9 @@ function App() {
   });
 
   const [channelArr, setChannelArr] = useState([
-    { name: 'Happy' },
-    { name: 'Dumpy' },
-    { name: 'Dopey' }
+    { name: 'E14 Cohort ' },
+    { name: 'Channel #2' },
+    { name: 'Channel #3' }
   ]);
 
   useEffect(() => {
