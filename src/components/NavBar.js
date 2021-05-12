@@ -1,25 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   Navbar,
-  NavbarBrand,
   Nav,
-  NavItem,
   Button
 } from 'reactstrap';
+import { signInUser, signOutUser } from '../helpers/auth';
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   return (
     <div>
       <Navbar id="navBar" light expand="md">
-        <NavbarBrand href="/">Slacker</NavbarBrand>
           <Nav className="sideNav" navbar>
-            <NavItem className="nav-item">Slacker</NavItem>
-            <NavItem className="nav-item" id="log-button">
-              <Button id="logOutBtn">Sign Out</Button>
-              <Button id="logInBtn">Sign In</Button>
-            </NavItem>
+            <ul>
+              <li className="nav-item">
+              <Link to="/">Slacker</Link>
+              </li>
+                {
+                  user !== null
+                  && <li>
+                    {
+                      user
+                        ? <Button className="nav-item" id="logOutBtn" onClick={signOutUser}>Sign Out</Button>
+                        : <Button className="nav-item" id="logInBtn" onClick={signInUser}>Sign In</Button>
+                    }
+                </li>
+                }
+            </ul>
           </Nav>
       </Navbar>
     </div>
   );
 }
+
+NavBar.propTypes = {
+  user: PropTypes.any
+};
