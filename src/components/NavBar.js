@@ -29,7 +29,9 @@ export default function NavBar({
                   currentChannel={currentChannel}
                   setCurrentChannel={setCurrentChannel} />
               </li>
+              <ul className='channel-list'>
                 <ChannelList channelArr={channelArr} />
+              </ul>
                 {
                   user !== null
                   && <li>
