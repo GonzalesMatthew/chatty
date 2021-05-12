@@ -15,15 +15,15 @@ export default function NavBar({ user }) {
           <Nav className="sideNav" navbar>
             <ul>
               <li className="nav-item">
-              <Link to="/">Slacker</Link>
+              <Link id="home-link" className="nav-link" to="/">Slacker</Link>
               </li>
                 {
                   user !== null
                   && <li>
                     {
                       user
-                        ? <Button className="nav-item" id="logOutBtn" onClick={signOutUser}>Sign Out</Button>
-                        : <Button className="nav-item" id="logInBtn" onClick={signInUser}>Sign In</Button>
+                        ? <Button id="logOutBtn" onClick={signOutUser}>Sign Out</Button>
+                        : <Button id="logInBtn" onClick={signInUser}>Sign In</Button>
                     }
                 </li>
                 }
