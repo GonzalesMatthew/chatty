@@ -17,16 +17,31 @@ const Message = (
     date
   }
 ) => {
-  const [postedMessage, setPostedMessage] = useState('');
+  const [editing, setEditing] = useState(false);
 
-  
+  const handleClick = (type) => {
+    switch (type) {
+      case 'delete':
+        console.warn('You would like to delete');
+        // Delete API function goes here:
+        //  deleteMessage(firebaseKey)
+        //  .then((messageArray) => setMessages(messageArray));
+        break;
+      case 'edit':
+        console.warn('You would like to edit');
+        setEditing((prevState) => !prevState);
+        break;
+      default:
+        console.warn('Nothing selected');
+    }
+  };
 
   return (
-    <Card body >
+    <Card body>
       <CardTitle tag = "h5"></CardTitle>
       <CardText></CardText>
-      <Button>Delete</Button>
-      <Button>Edit</Button>
+      <Button onClick={() => handleClick('delete')}>Delete</Button>
+      <Button onClick={() => handleClick('edit')}>Edit</Button>
     </Card>
   );
 };
