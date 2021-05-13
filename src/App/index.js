@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
 import './App.scss';
+import { getChannels } from '../helpers/data/channelData';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -12,12 +13,7 @@ function App() {
     name: 'Default Channel'
   });
 
-  const [channelArr, setChannelArr] = useState([
-    { name: 'E14 Cohort ' },
-    { name: 'Channel #2' },
-    { name: 'Channel #3' },
-    { name: 'blahhh' }
-  ]);
+  const [channelArr, setChannelArr] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -34,6 +30,11 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    getChannels().then((resp) => setChannelArr(resp));
+  }, []);
+
   return (
     <div className='App'>
       <Router>

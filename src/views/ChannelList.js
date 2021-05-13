@@ -11,7 +11,7 @@ const ChannelList = ({ channelArr }) => {
   return (
     channelArr.map((channel, key) => <li
       className='channel-list' key={key}
-      value={channel.name} onClick={handleClick}>{channel.name}</li>)
+      value={channel.name} onClick={handleClick}>#{channel.name}</li>)
   );
 };
 

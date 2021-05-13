@@ -11,6 +11,11 @@ export default function Routes() {
         path='/'
         component={Home}
         />
+        <Route
+        exact
+        path='/:firebaseKey'
+        component={Home}
+        />
         </Switch>
     </div>
   );

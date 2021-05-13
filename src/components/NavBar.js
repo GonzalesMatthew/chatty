@@ -16,15 +16,6 @@ export default function NavBar({
   setCurrentChannel,
   channelArr
 }) {
-  // const showChannels = () => (
-  //   <>
-  //     {channelArr.map((channel) => (
-  //     <li key={channel.id}>
-  //       <Link>#{channel.name}</Link>
-  //     </li>
-  //     ))}
-  //   </>
-  // );
   return (
     <div>
       <Navbar id="navBar" light expand="md">
