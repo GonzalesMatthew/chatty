@@ -37,7 +37,7 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    getMessages().then((response) => setMessages(response));
+    // getMessages().then((response) => setMessages(response));
   }, []);
 
   return (
