@@ -34,4 +34,4 @@ const deleteMessage = (firebaseKey, channelId) => new Promise((resolve, reject) 
     .catch((error) => reject(error));
 });
 
-export { getChannelMessages, createMessage, deleteMessage };
+export { getChannelMessages, updateMessage, createMessage, deleteMessage };
