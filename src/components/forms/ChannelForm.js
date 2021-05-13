@@ -40,7 +40,7 @@ const ChannelForm = ({
 
   return (
   <>
-    <Form onSubmit= {handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Label for='channelName'>Channel Name</Label>
         <Input type='text' name='name' placeholder='Enter channel name'
