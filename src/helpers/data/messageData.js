@@ -22,7 +22,7 @@ const createMessage = (messageObj) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/messages.json`, messageObj)
     .then((response) => {
-      resolve(updateMessage({ firebaseKey: response.data.name }));
+      resolve(updateMessage({ firebaseKey: response.data.name }, messageObj.channelId));
     })
     .catch((error) => reject(error));
 });
