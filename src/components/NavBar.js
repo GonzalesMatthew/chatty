@@ -9,6 +9,30 @@ import {
 import { signInUser, signOutUser } from '../helpers/auth';
 
 export default function NavBar({ user }) {
+  const channels = [
+    {
+      id: 1,
+      name: 'boogie',
+    },
+    {
+      id: 2,
+      name: 'cookies',
+    },
+    {
+      id: 1,
+      name: 'sleepy',
+
+    }
+  ];
+  const showChannels = () => (
+    <>
+      {channels.map((channel) => (
+      <li key={channel.id}>
+        <Link>#{channel.name}</Link>
+      </li>
+      ))}
+    </>
+  );
   return (
     <div>
       <Navbar id="navBar" light expand="md">
@@ -16,6 +40,7 @@ export default function NavBar({ user }) {
             <ul>
               <li className="nav-item">
               <Link id="home-link" className="nav-link" to="/">Slacker</Link>
+              {showChannels()}
               </li>
                 {
                   user !== null
