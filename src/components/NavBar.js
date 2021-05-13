@@ -7,41 +7,40 @@ import {
   Button
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/auth';
+import ModalContainer from './forms/ModalContainer';
+import ChannelList from '../views/ChannelList';
 
-export default function NavBar({ user }) {
-  const channels = [
-    {
-      id: 1,
-      name: 'boogie',
-    },
-    {
-      id: 2,
-      name: 'cookies',
-    },
-    {
-      id: 1,
-      name: 'sleepy',
-
-    }
-  ];
-  const showChannels = () => (
-    <>
-      {channels.map((channel) => (
-      <li key={channel.id}>
-        <Link>#{channel.name}</Link>
-      </li>
-      ))}
-    </>
-  );
+export default function NavBar({
+  user,
+  currentChannel,
+  setCurrentChannel,
+  channelArr
+}) {
+  // const showChannels = () => (
+  //   <>
+  //     {channelArr.map((channel) => (
+  //     <li key={channel.id}>
+  //       <Link>#{channel.name}</Link>
+  //     </li>
+  //     ))}
+  //   </>
+  // );
   return (
     <div>
       <Navbar id="navBar" light expand="md">
           <Nav className="sideNav" navbar>
-            <ul>
+            <ul className='slackNav'>
               <li className="nav-item">
               <Link id="home-link" className="nav-link" to="/">Slacker</Link>
-              {showChannels()}
               </li>
+              <li>
+                <ModalContainer
+                  currentChannel={currentChannel}
+                  setCurrentChannel={setCurrentChannel} />
+              </li>
+              <ul className='channel-list'>
+                <ChannelList channelArr={channelArr} />
+              </ul>
                 {
                   user !== null
                   && <li>
@@ -60,5 +59,8 @@ export default function NavBar({ user }) {
 }
 
 NavBar.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  currentChannel: PropTypes.object,
+  setCurrentChannel: PropTypes.func,
+  channelArr: PropTypes.array
 };
