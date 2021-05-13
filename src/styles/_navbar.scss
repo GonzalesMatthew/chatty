@@ -1,0 +1,18 @@
+// _navbar.scss
+
+ul.slackNav {
+  list-style-type: none;
+}
+
+ul.channel-list {
+  padding-inline-start: 0px;
+}
+
+.channel-list {
+  color: white;
+  list-style-type: none;
+}
+
+.channel-list li {
+  cursor: pointer
+}
