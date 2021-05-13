@@ -23,11 +23,22 @@ function App() {
       }
     });
   }, []);
+
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    getMessages().then((response) => setMessages(response));
+  }, []);
+
   return (
     <div className='App'>
       <Router>
-        <NavBar user={user}/>
-        <Routes />
+        <NavBar/>
+        <Routes
+          messages={messages}
+          setMessages={setMessages}
+          user={user}
+        />
       </Router>
     </div>
   );
