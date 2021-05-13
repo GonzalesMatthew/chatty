@@ -8,6 +8,16 @@ import './App.scss';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [currentChannel, setCurrentChannel] = useState({
+    name: 'Default Channel'
+  });
+
+  const [channelArr, setChannelArr] = useState([
+    { name: 'E14 Cohort ' },
+    { name: 'Channel #2' },
+    { name: 'Channel #3' }
+  ]);
+
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed) {
@@ -33,7 +43,11 @@ function App() {
   return (
     <div className='App'>
       <Router>
-        <NavBar/>
+        <NavBar user={user}
+          currentChannel={currentChannel}
+          setCurrentChannel={setCurrentChannel}
+          channelArr={channelArr}
+          setChannelArr={setChannelArr} />
         <Routes
           messages={messages}
           setMessages={setMessages}

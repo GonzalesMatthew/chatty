@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Home from '../views/Home';
-import Messages from '../components/Messages';
+import Messages from '../views/Messages';
 
 export default function Routes({ user, messages, setMessages }) {
   return (
