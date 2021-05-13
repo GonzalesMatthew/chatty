@@ -13,7 +13,7 @@ const getUser = (firebaseKey) => new Promise((resolve, reject) => {
 
 const updateUser = (userObj) => new Promise((resolve, reject) => {
   axios
-    .patch(`${dbUrl}/users/${userObj.firebaseKey}.json`)
+    .patch(`${dbUrl}/users/${userObj.firebaseKey}.json`, userObj)
     .then(() => resolve(getUser(userObj.firebaseKey)))
     .catch((error) => reject(error));
 });
