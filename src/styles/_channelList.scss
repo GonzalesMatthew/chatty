@@ -1,0 +1,13 @@
+// _channelList.scss
+
+.channel-list i {
+  margin: 0 5px 0 5px;
+  position: absolute;
+  right: 5px;
+}
+
+.channel-list li {
+  max-width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -1,13 +1,14 @@
 // React boilerplate modal
 
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button, Modal, ModalHeader,
   ModalBody, ModalFooter
 } from 'reactstrap';
 import ChannelForm from './ChannelForm';
 
-const ModalContainer = () => {
+const ModalContainer = ({ setChannelArr }) => {
   const [submitFunc, setSubmitFunc] = useState();
   const submitForm = () => {
     if (submitFunc) {
@@ -27,7 +28,8 @@ const ModalContainer = () => {
         <ModalBody>
           <ChannelForm
             setSubmitFunc={setSubmitFunc}
-            modal={modal} setModal={setModal} />
+            modal={modal} setModal={setModal}
+            setChannelArr={setChannelArr} />
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={submitForm}>Submit</Button>{' '}
@@ -36,6 +38,10 @@ const ModalContainer = () => {
       </Modal>
     </div>
   );
+};
+
+ModalContainer.propTypes = {
+  setChannelArr: PropTypes.func
 };
 
 export default ModalContainer;
