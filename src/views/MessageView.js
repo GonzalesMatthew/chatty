@@ -8,7 +8,7 @@ export default function MessageView() {
   const { firebaseKey } = useParams();
   useEffect(() => {
     getChannelMessages(firebaseKey).then(setchannelMessages);
-  }, []);
+  }, [firebaseKey]);
   return (
     <div>
       {channelMessages.map((message) => (
