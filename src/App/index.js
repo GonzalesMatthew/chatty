@@ -25,6 +25,7 @@ function App() {
           user: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
+        console.warn(userInfoObj);
         getChannels().then((loadChannelArr) => {
           setChannelArr(loadChannelArr);
         });
@@ -46,7 +47,7 @@ function App() {
           setCurrentChannel={setCurrentChannel}
           channelArr={channelArr}
           setChannelArr={setChannelArr} />
-        <Routes />
+        <Routes user={user} />
       </Router>
     </div>
   );

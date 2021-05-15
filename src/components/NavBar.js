@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import {
   Navbar,
   Nav,
-  Button
+  Button,
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/auth';
 import ModalContainer from './forms/ModalContainer';
 import ChannelList from '../views/ChannelList';
+import slackerLogo from '../slacklogo3.png';
 
 export default function NavBar({
   user,
@@ -21,16 +22,21 @@ export default function NavBar({
           <Nav className="sideNav" navbar>
             <ul className='slackNav'>
               <li className="nav-item">
-              <Link id="home-link" className="nav-link" to="/">Slacker</Link>
+              <Link id="home-link" className="nav-link" to="/"><img id="logo-img" src={slackerLogo} alt='slack-logo'></img></Link>
               </li>
+              {
+              user
+              && <>
               <li>
                 <ModalContainer
-                  setChannelArr={setChannelArr} />
+                setChannelArr={setChannelArr} />
               </li>
-              <ul className='channel-list'>
+                <ul className='channel-list'>
                 <ChannelList channelArr={channelArr}
-                  setChannelArr={setChannelArr} />
+                setChannelArr={setChannelArr} />
               </ul>
+              </>
+              }
                 {
                   user !== null
                   && <li>
