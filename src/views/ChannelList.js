@@ -22,7 +22,7 @@ const ChannelList = ({
       className='channel-list' key={key}
       value={channel.name} onClick={() => (history.push(`${channel.firebaseKey}`))}>
         #{channel.name}
-        <span><i className='fa fa-trash' aria-hidden='true'
+        <span><i className='fa fa-ellipsis-v' aria-hidden='true'
           onClick={deleteClick}
           id={channel.firebaseKey}> </i></span></li>)
   );
