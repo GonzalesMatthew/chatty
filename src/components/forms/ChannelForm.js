@@ -35,7 +35,6 @@ const ChannelForm = ({
   };
 
   const handleSubmit = () => {
-    console.warn('handleSubmit in ChannelForm');
     const channelObj = {
       name: formChannel.name
     };
