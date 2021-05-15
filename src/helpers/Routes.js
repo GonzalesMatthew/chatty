@@ -14,7 +14,7 @@ export default function Routes({ user, messages, setMessages }) {
           component={Home}
         />
         <Route
-          path='/cooking-with-css'
+          path='/funky-town'
           user={user}
           component={
             () => <Messages

@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
 import './App.scss';
+import { getChannelMessages } from '../helpers/data/messageData';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -34,10 +35,12 @@ function App() {
     });
   }, []);
 
+  // messages useState
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    // getMessages().then((response) => setMessages(response));
+    getChannelMessages('-M_YjMQR3_2zQxU6briw').then((response) => setMessages(response));
+    console.warn(messages);
   }, []);
 
   return (

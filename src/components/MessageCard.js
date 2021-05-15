@@ -6,7 +6,7 @@ import {
   CardText,
   CardTitle
 } from 'reactstrap';
-import MessageEditForm from '../components/MessageEditForm';
+// import MessageForm from '../components/MessageForm';
 // import { deleteMessage } from '../helpers/data/';
 
 const MessageCard = ({
@@ -37,27 +37,35 @@ const MessageCard = ({
         console.warn('Nothing selected');
     }
   };
-
+  // testing
+  console.warn(firebaseKey);
+  console.warn(channelId);
+  console.warn(uid);
+  console.warn(setMessages);
+  // end testing
   return (
     <Card body>
       <CardTitle tag = "h5">{fullName}</CardTitle>
       <CardText>{text}</CardText>
+      <CardText>{date}</CardText>
+      <CardText>{user.uid}</CardText>
       <Button onClick={() => handleClick('delete')}>Delete</Button>
       <Button onClick={() => handleClick('edit')}>
         {editing ? 'Close' : 'Edit'}
       </Button>
       {
-        editing && <MessageEditForm
-          formTitle='Edit Message'
-          setMessages={setMessages}
-          firebaseKey={firebaseKey}
-          text={text}
-          uid={uid}
-          channelId={channelId}
-          date={date}
-          fullName={fullName}
-          user={user}
-        />
+        editing && console.warn('Edit mode on')
+        // <MessageForm
+        //   formTitle='Edit Message'
+        //   setMessages={setMessages}
+        //   firebaseKey={firebaseKey}
+        //   text={text}
+        //   uid={uid}
+        //   channelId={channelId}
+        //   date={date}
+        //   fullName={fullName}
+        //   user={user}
+        // />
       }
     </Card>
   );
