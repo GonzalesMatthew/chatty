@@ -12,9 +12,8 @@ import ChannelList from '../views/ChannelList';
 
 export default function NavBar({
   user,
-  currentChannel,
-  setCurrentChannel,
-  channelArr
+  channelArr,
+  setChannelArr
 }) {
   return (
     <div>
@@ -26,11 +25,11 @@ export default function NavBar({
               </li>
               <li>
                 <ModalContainer
-                  currentChannel={currentChannel}
-                  setCurrentChannel={setCurrentChannel} />
+                  setChannelArr={setChannelArr} />
               </li>
               <ul className='channel-list'>
-                <ChannelList channelArr={channelArr} />
+                <ChannelList channelArr={channelArr}
+                  setChannelArr={setChannelArr} />
               </ul>
                 {
                   user !== null
@@ -51,7 +50,6 @@ export default function NavBar({
 
 NavBar.propTypes = {
   user: PropTypes.any,
-  currentChannel: PropTypes.object,
-  setCurrentChannel: PropTypes.func,
-  channelArr: PropTypes.array
+  channelArr: PropTypes.array,
+  setChannelArr: PropTypes.func
 };
