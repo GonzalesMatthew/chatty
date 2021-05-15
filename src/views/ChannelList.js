@@ -4,6 +4,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Popup from 'reactjs-popup';
 import { deleteChannel } from '../helpers/data/channelData';
 
 const ChannelList = ({
@@ -22,9 +23,12 @@ const ChannelList = ({
       className='channel-list' key={key}
       value={channel.name} onClick={() => (history.push(`${channel.firebaseKey}`))}>
         #{channel.name}
-        <span><i className='fa fa-ellipsis-v' aria-hidden='true'
-          onClick={deleteClick}
-          id={channel.firebaseKey}> </i></span></li>)
+        <span>
+          <Popup trigger={<i className='fa fa-ellipsis-v' aria-hidden='true'
+          id={channel.firebaseKey}></i> } position="right center">
+          </Popup>
+        </span>
+ 
   );
 };
 
