@@ -77,7 +77,7 @@ MessageCard.propTypes = {
   uid: PropTypes.string.isRequired,
   channelId: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  date: PropTypes.indstanceOf(Date).isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
   setMessages: PropTypes.func,
   user: PropTypes.any
 };
