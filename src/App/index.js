@@ -22,7 +22,7 @@ function App() {
           fullName: authed.displayName,
           profileImage: authed.photoURL,
           uid: authed.uid,
-          user: authed.email.split('@')[0]
+          username: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
         console.warn(userInfoObj);

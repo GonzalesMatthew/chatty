@@ -30,7 +30,7 @@ export default function Routes({ user }) {
         exact
         path='/:firebaseKey'
         user={user}
-        component={MessageView}
+        component={() => <MessageView user={user} />}
         />
         </Switch>
     </div>
