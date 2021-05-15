@@ -25,5 +25,5 @@ export default function MessageView({ user }) {
 }
 
 MessageView.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.any
 };
