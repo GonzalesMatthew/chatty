@@ -12,7 +12,7 @@ https://dbdiagram.io/d/606d049decb54e10c33f0196
 - HTML
 - SCSS
 - Bootstrap/Reactstrap
-- Firebase authentication and databse
+- Firebase authentication and realtime databse
 - Deployed via Netlify
 
 ## User Stories

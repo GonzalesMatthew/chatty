@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../views/Home';
+import MessageView from '../views/MessageView';
 
 export default function Routes() {
   return (
@@ -14,7 +15,7 @@ export default function Routes() {
         <Route
         exact
         path='/:firebaseKey'
-        component={Home}
+        component={MessageView}
         />
         </Switch>
     </div>
