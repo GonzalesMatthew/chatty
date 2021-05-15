@@ -1,9 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Home from '../views/Home';
 import MessageView from '../views/MessageView';
 
-export default function Routes() {
+export default function Routes({ user }) {
   return (
     <div>
       <Switch>
@@ -15,9 +16,13 @@ export default function Routes() {
         <Route
         exact
         path='/:firebaseKey'
-        component={MessageView}
+        component={() => <MessageView user={user} />}
         />
         </Switch>
     </div>
   );
 }
+
+Routes.propTypes = {
+  user: PropTypes.object
+};
