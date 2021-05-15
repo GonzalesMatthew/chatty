@@ -42,6 +42,6 @@ export default function MessageInput({ user, setChannelMessages }) {
 }
 
 MessageInput.propTypes = {
-  user: PropTypes.object,
+  user: PropTypes.any,
   setChannelMessages: PropTypes.any,
 };
