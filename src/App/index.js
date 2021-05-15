@@ -25,7 +25,6 @@ function App() {
           username: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
-        console.warn(userInfoObj);
         getChannels().then((loadChannelArr) => {
           setChannelArr(loadChannelArr);
         });
