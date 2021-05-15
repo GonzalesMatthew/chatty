@@ -33,6 +33,11 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    getChannels().then((resp) => setChannelArr(resp));
+  }, []);
+
   return (
     <div className='App'>
       <Router>

@@ -16,7 +16,7 @@ const ChannelForm = ({
   const [formChannel, setFormChannel] = useState({
     name: ''
   });
-  const [isValid, setIsValid] = useState('');
+  const [isValid, setIsValid] = useState(false);
   const [formPlaceholder, setFormPlaceholder] = useState('Enter channel name');
 
   const submitRef = useRef(null);
