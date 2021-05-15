@@ -38,5 +38,5 @@ export default function Routes({ user }) {
 }
 
 Routes.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.any
 };
