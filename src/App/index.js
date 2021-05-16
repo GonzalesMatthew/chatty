@@ -22,7 +22,7 @@ function App() {
           fullName: authed.displayName,
           profileImage: authed.photoURL,
           uid: authed.uid,
-          user: authed.email.split('@')[0]
+          username: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
         getChannels().then((loadChannelArr) => {
@@ -46,8 +46,7 @@ function App() {
           setCurrentChannel={setCurrentChannel}
           channelArr={channelArr}
           setChannelArr={setChannelArr} />
-        <Routes
-        />
+        <Routes user={user} />
       </Router>
     </div>
   );

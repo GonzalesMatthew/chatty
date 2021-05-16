@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Messages from '../components/Messages';
 import { getChannelMessages } from '../helpers/data/messageData';
+import MessageInput from '../components/MessageInput';
 
-export default function MessageView() {
+export default function MessageView({ user }) {
   const [channelMessages, setChannelMessages] = useState([]);
   const { firebaseKey } = useParams();
   const [userIds, setUserIds] = useState([]);
@@ -20,6 +22,11 @@ export default function MessageView() {
         {...message}
         />
       ))}
+      <MessageInput user={user} setChannelMessages={setChannelMessages} />
     </div>
   );
 }
+
+MessageView.propTypes = {
+  user: PropTypes.any
+};
