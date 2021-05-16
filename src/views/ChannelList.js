@@ -39,11 +39,11 @@ const ChannelList = ({
             ? <Popup className='channel-pop-up' trigger={<i className='fa fa-ellipsis-v' aria-hidden='true'
               id={channel.firebaseKey}></i> } position='left center'>
               <ul>
-                <li onClick={deleteClick} id={channel.firebaseKey}>Delete Channel</li>
                 <li onClick={() => {
                   history.push(`/channel/${channel.firebaseKey}`);
                   setModal(true);
                 }} id={channel.firebaseKey}>Update Channel</li>
+                <li onClick={deleteClick} id={channel.firebaseKey}>Delete Channel</li>
               </ul>
           </Popup> : ''}
         </span>
