@@ -3,6 +3,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Home from '../views/Home';
 import MessageView from '../views/MessageView';
+import ModalContainer from '../components/forms/ModalContainer';
+// import TestRoute from '../components/cards/TestRoute';
 
 const PrivateRoute = ({ component: Component, user, ...rest }) => {
   const routeChecker = (taco) => (user
@@ -17,7 +19,12 @@ PrivateRoute.propTypes = {
   user: PropTypes.any
 };
 
-export default function Routes({ user }) {
+export default function Routes({
+  user,
+  setChannelArr,
+  modal,
+  setModal
+}) {
   return (
     <div>
       <Switch>
@@ -28,15 +35,36 @@ export default function Routes({ user }) {
         />
         <PrivateRoute
         exact
-        path='/:firebaseKey'
+        path='/messages/:firebaseKey'
         user={user}
         component={() => <MessageView user={user} />}
         />
-        </Switch>
+        <PrivateRoute
+        exact
+        path='/add-channel/'
+        user={user}
+        component={() => <ModalContainer user={user}
+          setChannelArr={setChannelArr}
+          modal={modal}
+          setModal={setModal} />}
+        />
+        <PrivateRoute
+        exact
+        path='/channel/:firebaseKey'
+        user={user}
+        component={() => <ModalContainer user={user}
+          setChannelArr={setChannelArr}
+          modal={modal}
+          setModal={setModal} />}
+        />
+      </Switch>
     </div>
   );
 }
 
 Routes.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  setChannelArr: PropTypes.func,
+  modal: PropTypes.bool,
+  setModal: PropTypes.func
 };

@@ -3,19 +3,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button, Modal, ModalHeader,
+  Button, Modal,
   ModalBody, ModalFooter
 } from 'reactstrap';
 import ChannelForm from './ChannelForm';
 
-const ModalContainer = ({ setChannelArr }) => {
+const ModalContainer = ({
+  user,
+  setChannelArr,
+  modal,
+  setModal
+}) => {
   const [submitFunc, setSubmitFunc] = useState();
   const submitForm = () => {
     if (submitFunc) {
       submitFunc.current();
     }
   };
-  const [modal, setModal] = useState(false);
   const toggle = () => {
     setModal(!modal);
   };
@@ -24,9 +28,9 @@ const ModalContainer = ({ setChannelArr }) => {
     <div className='modal-container'>
       <div className='nav-item channel-create' onClick={toggle}>Add Channel</div>
       <Modal isOpen={modal} toggle={toggle} className='channel-form-modal'>
-        <ModalHeader toggle={toggle}>Add Channel</ModalHeader>
         <ModalBody>
           <ChannelForm
+            user={user}
             setSubmitFunc={setSubmitFunc}
             modal={modal} setModal={setModal}
             setChannelArr={setChannelArr} />
@@ -41,7 +45,10 @@ const ModalContainer = ({ setChannelArr }) => {
 };
 
 ModalContainer.propTypes = {
-  setChannelArr: PropTypes.func
+  user: PropTypes.any,
+  setChannelArr: PropTypes.func,
+  modal: PropTypes.bool,
+  setModal: PropTypes.func
 };
 
 export default ModalContainer;

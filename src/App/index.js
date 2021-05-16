@@ -12,8 +12,8 @@ function App() {
   const [currentChannel, setCurrentChannel] = useState({
     name: 'Default Channel'
   });
-
   const [channelArr, setChannelArr] = useState([]);
+  const [modal, setModal] = useState(true);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -45,8 +45,12 @@ function App() {
           currentChannel={currentChannel}
           setCurrentChannel={setCurrentChannel}
           channelArr={channelArr}
-          setChannelArr={setChannelArr} />
-        <Routes user={user} />
+          setChannelArr={setChannelArr}
+          setModal={setModal} />
+        <Routes user={user}
+          setChannelArr={setChannelArr}
+          modal={modal}
+          setModal={setModal} />
       </Router>
     </div>
   );
