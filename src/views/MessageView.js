@@ -19,6 +19,7 @@ export default function MessageView({ user }) {
         <Messages
         key={message.firebaseKey}
         userIds = {userIds}
+        setChannelMessages={setChannelMessages}
         {...message}
         />
       ))}
