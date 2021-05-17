@@ -12,7 +12,6 @@ import {
 import { createChannel, getSingleChannel, updateChannel } from '../../helpers/data/channelData';
 
 const ChannelForm = ({
-  user,
   setSubmitFunc,
   modal,
   setModal,
@@ -21,8 +20,6 @@ const ChannelForm = ({
   const { firebaseKey } = useParams();
   const [channelObj, setChannelObj] = useState({
     name: '',
-    uid: user ? user.uid : '',
-    firebaseKey
   });
   // Display invalid status for input field if no input
   const [isInvalid, setIsInvalid] = useState(false);
@@ -40,8 +37,6 @@ const ChannelForm = ({
         if (channel) {
           setChannelObj({
             name: channel.name,
-            uid: channel.uid,
-            firebaseKey: channel.firebaseKey
           });
         }
       });
@@ -49,8 +44,7 @@ const ChannelForm = ({
   }, []);
 
   const handleInputChange = (e) => {
-    setChannelObj((prevState) => ({
-      ...prevState,
+    setChannelObj(() => ({
       [e.target.name]: e.target.value,
     }));
     if (e.target.value) {
@@ -93,7 +87,6 @@ const ChannelForm = ({
 };
 
 ChannelForm.propTypes = {
-  user: PropTypes.any,
   setSubmitFunc: PropTypes.func,
   modal: PropTypes.bool,
   setModal: PropTypes.func,

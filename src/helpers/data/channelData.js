@@ -59,7 +59,7 @@ const getSingleChannel = (firebaseKey) => new Promise((resolve, reject) => {
 
 const updateChannel = (firebaseKey, channelObj) => new Promise((resolve, reject) => {
   axios
-    .put(`${dbUrl}/channels/${firebaseKey}.json`, channelObj)
+    .patch(`${dbUrl}/channels/${firebaseKey}.json`, channelObj)
     .then(() => getChannels().then((channelArr) => {
       if (channelArr.length) {
         resolve(channelArr);
