@@ -17,6 +17,8 @@ const ChannelList = ({
 }) => {
   const history = useHistory();
   const deleteClick = (e) => {
+    // call delete only if a firebase key exists
+    // prevents deleting all of the channels!
     if (e.target.id) {
       getChannelMessages(e.target.id).then((messageArr) => {
         for (let i = 0; i < messageArr.length; i += 1) {
@@ -35,7 +37,7 @@ const ChannelList = ({
       value={channel.name} onClick={() => (history.push(`/messages/${channel.firebaseKey}`))}>
         #{channel.name}
         <span>
-          { user.uid === channel.uid
+          { user.uid === channel.uid && channel.firebaseKey
             ? <Popup className='channel-pop-up' trigger={<i className='fa fa-ellipsis-v' aria-hidden='true'
               id={channel.firebaseKey}></i> } position='left center'>
               <ul>

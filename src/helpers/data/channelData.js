@@ -30,16 +30,18 @@ const createChannel = (channel) => new Promise((resolve, reject) => {
 });
 
 const deleteChannel = (firebaseKey) => new Promise((resolve, reject) => {
-  axios
-    .delete(`${dbUrl}/channels/${firebaseKey}.json`)
-    .then(() => getChannels().then((channelArr) => {
-      if (channelArr.length) {
-        resolve(channelArr);
-      } else {
-        resolve([]);
-      }
-    }))
-    .catch((error) => reject(error));
+  if (firebaseKey) {
+    axios
+      .delete(`${dbUrl}/channels/${firebaseKey}.json`)
+      .then(() => getChannels().then((channelArr) => {
+        if (channelArr.length) {
+          resolve(channelArr);
+        } else {
+          resolve([]);
+        }
+      }))
+      .catch((error) => reject(error));
+  }
 });
 
 const getSingleChannel = (firebaseKey) => new Promise((resolve, reject) => {
