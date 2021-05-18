@@ -6,6 +6,7 @@ import {
   CardText,
   CardTitle
 } from 'reactstrap';
+import moment from 'moment';
 import { deleteMessage } from '../helpers/data/messageData';
 import { getUser } from '../helpers/data/userData';
 import MessageInput from './MessageInput';
@@ -46,7 +47,7 @@ export default function Messages({ userIds, setChannelMessages, ...message }) {
     <Card body>
       <CardTitle tag = "h5">{message.uid}</CardTitle>
       <CardText>{message.text}</CardText>
-      <CardText>{message.date}</CardText>
+      <CardText>{moment(message.date).fromNow()}</CardText>
       <Button onClick={() => handleClick('delete')}>Delete</Button>
       <Button onClick={() => handleClick('edit')}>
         {editing ? 'Cancel' : 'Edit'}
