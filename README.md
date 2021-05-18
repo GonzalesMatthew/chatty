@@ -1,5 +1,5 @@
 # Chatty (AKA Slacker)
-
+![header image](https://i.imgur.com/rolRufS.png)
 ## Wireframe
 ![wireframe](https://i.imgur.com/uUa7vMT.png)
 ## ERD
@@ -25,11 +25,11 @@ https://dbdiagram.io/d/606d049decb54e10c33f0196
 - As a user I should see what time a message was posted
 - As a user I should be able to log out of the app
 
-## Stretch Goals
-coming soon
-
 ## Contributors 
-coming soon
+[Katy Fry](https://github.com/katherinevfry)
+[Matthew Gonzales](https://github.com/GonzalesMatthew)
+[Hunter Juneau](https://github.com/HunterJuneau)
+[John Maple](https://github.com/Greenfin17)
 
 ## Loom Videos
 coming soon

@@ -32,7 +32,7 @@ export default function NavBar({
                 history.push('/add-channel/');
                 setModal(true);
               })}>
-                Add Channel
+                Add Channel <i className="fas fa-plus-circle"></i>
               </li>
                 <ul className='channel-list'>
                 <ChannelList

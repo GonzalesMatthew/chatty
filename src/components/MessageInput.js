@@ -30,7 +30,7 @@ export default function MessageInput({
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form id="form" onSubmit={handleSubmit}>
       <InputGroup>
         <Input
           type='text'
@@ -38,7 +38,7 @@ export default function MessageInput({
           onChange={(e) => setMessage(e.target.value)}
         />
         <InputGroupAddon addonType='append'>
-          <Button type='submit' color='primary'>
+          <Button id="submit-btn" type='submit' color='primary'>
             Send
           </Button>
         </InputGroupAddon>
