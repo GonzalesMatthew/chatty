@@ -7,7 +7,12 @@
 }
 
 .channel-list li {
-  max-width: 130px;
+  max-width: 90%; 
   overflow: hidden;
-  white-space: nowrap;
+  padding-left: 1em;
+  text-indent: -.65em;
+}
+
+.add-channel-link {
+  cursor: pointer;
 }
