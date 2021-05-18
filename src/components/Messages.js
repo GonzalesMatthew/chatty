@@ -8,7 +8,7 @@ import {
   CardTitle
 } from 'reactstrap';
 import { deleteMessage } from '../helpers/data/messageData';
-import { getUser } from '../helpers/data/userData';
+import { getUserById } from '../helpers/data/userData';
 import MessageInput from './MessageInput';
 
 export default function Messages({ userIds, setChannelMessages, ...message }) {
@@ -24,7 +24,7 @@ export default function Messages({ userIds, setChannelMessages, ...message }) {
       const userId = userIds[i];
       console.warn(userId);
       // get userObj:
-      getUser(userId).then(setUserObj);
+      getUserById(userId).then(setUserObj);
     }
   }
   console.warn(userObj);

@@ -12,6 +12,7 @@ export default function MessageView({ user }) {
   useEffect(() => {
     getChannelMessages(firebaseKey).then(setChannelMessages);
     setUserIds(channelMessages.map((message) => message.uid));
+    console.warn(userIds);
   }, [firebaseKey]);
   return (
     <div>
