@@ -30,6 +30,12 @@ margin: 0;
   padding-top: 20px;
 }
 
+@media (max-width: 677px) {
+  .tog {
+    margin-left: 0px;
+  }
+}
+
 .nav-item {
   // padding: 6px 8px 6px 16px;
   text-decoration: none;
