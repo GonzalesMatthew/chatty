@@ -28,7 +28,6 @@ export default function Messages({ setChannelMessages, ...message }) {
         setEditing((prevState) => !prevState);
         break;
       default:
-        console.warn('Nothing selected');
     }
   };
 
