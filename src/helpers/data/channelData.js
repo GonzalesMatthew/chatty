@@ -6,7 +6,13 @@ const dbUrl = firebaseConfig.databaseURL;
 const getChannels = () => new Promise((resolve, reject) => {
   axios
     .get(`${dbUrl}/channels.json`)
-    .then((response) => resolve(Object.values(response.data)))
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
     .catch((error) => reject(error));
 });
 
@@ -24,8 +30,36 @@ const createChannel = (channel) => new Promise((resolve, reject) => {
 });
 
 const deleteChannel = (firebaseKey) => new Promise((resolve, reject) => {
+  if (firebaseKey) {
+    axios
+      .delete(`${dbUrl}/channels/${firebaseKey}.json`)
+      .then(() => getChannels().then((channelArr) => {
+        if (channelArr.length) {
+          resolve(channelArr);
+        } else {
+          resolve([]);
+        }
+      }))
+      .catch((error) => reject(error));
+  }
+});
+
+const getSingleChannel = (firebaseKey) => new Promise((resolve, reject) => {
   axios
-    .delete(`${dbUrl}/channels/${firebaseKey}.json`)
+    .get(`${dbUrl}/channels/${firebaseKey}.json`)
+    .then((response) => {
+      if (response.data) {
+        resolve(response.data);
+      } else {
+        resolve({});
+      }
+    })
+    .catch((error) => reject(error));
+});
+
+const updateChannel = (firebaseKey, channelObj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${dbUrl}/channels/${firebaseKey}.json`, channelObj)
     .then(() => getChannels().then((channelArr) => {
       if (channelArr.length) {
         resolve(channelArr);
@@ -36,4 +70,8 @@ const deleteChannel = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export { getChannels, createChannel, deleteChannel };
+export {
+  getChannels, getSingleChannel,
+  createChannel, updateChannel,
+  deleteChannel
+};
