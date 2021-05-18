@@ -1,0 +1,16 @@
+// _channelPopup.scss
+
+.channel-pop-up-content {
+  position: 'left-center';
+  background-color: white;
+  border-radius: 5px;
+}
+
+.channel-pop-up-content ul {
+  padding-inline-start: 0px;
+  padding: 5px;
+}
+
+.channel-pop-up-content li {
+  cursor: pointer;
+}

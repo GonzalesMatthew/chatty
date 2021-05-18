@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
   Navbar,
   Nav,
   Button,
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/auth';
-import ModalContainer from './forms/ModalContainer';
 import ChannelList from '../views/ChannelList';
 import slackerLogo from '../slacklogo3.png';
 
 export default function NavBar({
   user,
   channelArr,
-  setChannelArr
+  setChannelArr,
+  setModal
 }) {
+  const history = useHistory();
   return (
     <div>
       <Navbar id="navBar" light expand="md">
@@ -27,13 +28,19 @@ export default function NavBar({
               {
               user
               && <>
-              <li>
-                <ModalContainer
-                setChannelArr={setChannelArr} />
+              <li className='add-channel-link' onClick={(() => {
+                history.push('/add-channel/');
+                setModal(true);
+              })}>
+                Add Channel
               </li>
                 <ul className='channel-list'>
-                <ChannelList channelArr={channelArr}
-                setChannelArr={setChannelArr} />
+                <ChannelList
+                  user={user}
+                  channelArr={channelArr}
+                  setChannelArr={setChannelArr}
+                  setModal={setModal}
+                />
               </ul>
               </>
               }
@@ -57,5 +64,6 @@ export default function NavBar({
 NavBar.propTypes = {
   user: PropTypes.any,
   channelArr: PropTypes.array,
-  setChannelArr: PropTypes.func
+  setChannelArr: PropTypes.func,
+  setModal: PropTypes.func
 };
