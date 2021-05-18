@@ -1,3 +1,4 @@
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {
@@ -6,7 +7,6 @@ import {
   CardText,
   CardTitle
 } from 'reactstrap';
-import moment from 'moment';
 import { deleteMessage } from '../helpers/data/messageData';
 import { getUser } from '../helpers/data/userData';
 import MessageInput from './MessageInput';
