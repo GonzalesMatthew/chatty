@@ -1,6 +1,6 @@
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Card,
@@ -8,27 +8,16 @@ import {
   CardTitle
 } from 'reactstrap';
 import { deleteMessage } from '../helpers/data/messageData';
-import { getUserById } from '../helpers/data/userData';
+import { getUserbyUid } from '../helpers/data/userData';
 import MessageInput from './MessageInput';
 
-export default function Messages({ userIds, setChannelMessages, ...message }) {
+export default function Messages({ setChannelMessages, ...message }) {
   const [editing, setEditing] = useState(false);
+  const [localUserObj, setLocalUserObj] = useState({});
 
-  // ------------------
-  // get specific user:
-  // create userObj hook:
-  const [userObj, setUserObj] = useState({});
-  // look for match to message's user:
-  for (let i = 0; i < userIds.length; i += 1) {
-    if (userIds[i] === message.uid) {
-      const userId = userIds[i];
-      console.warn(userId);
-      // get userObj:
-      getUserById(userId).then(setUserObj);
-    }
-  }
-  console.warn(userObj);
-  // ------------------
+  useEffect(() => {
+    getUserbyUid(message.uid).then((resp) => setLocalUserObj(Object.values(resp.data)));
+  }, []);
 
   const handleClick = (type) => {
     switch (type) {
@@ -45,7 +34,8 @@ export default function Messages({ userIds, setChannelMessages, ...message }) {
 
   return (
     <Card body>
-      <CardTitle tag = "h5">{message.uid}</CardTitle>
+      <img src={localUserObj[0]?.profileImage} width='50px'/>
+      <CardTitle tag = "h5">{localUserObj[0]?.fullName}</CardTitle>
       <CardText>{message.text}</CardText>
       <CardText>{moment(message.date).fromNow()}</CardText>
       <Button onClick={() => handleClick('delete')}>Delete</Button>
@@ -65,7 +55,6 @@ export default function Messages({ userIds, setChannelMessages, ...message }) {
 }
 
 Messages.propTypes = {
-  message: PropTypes.any,
-  userIds: PropTypes.array,
+  message: PropTypes.object,
   setChannelMessages: PropTypes.any
 };

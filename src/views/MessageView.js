@@ -8,19 +8,20 @@ import MessageInput from '../components/MessageInput';
 export default function MessageView({ user }) {
   const [channelMessages, setChannelMessages] = useState([]);
   const { firebaseKey } = useParams();
-  const [userIds, setUserIds] = useState([]);
+
   useEffect(() => {
     getChannelMessages(firebaseKey).then(setChannelMessages);
-    setUserIds(channelMessages.map((message) => message.uid));
-    console.warn(userIds);
   }, [firebaseKey]);
+
+  useEffect(() => {
+    getChannelMessages(firebaseKey).then(setChannelMessages);
+  }, [channelMessages]);
+
   return (
     <div>
       {channelMessages.map((message) => (
         <Messages
         key={message.firebaseKey}
-        userIds = {userIds}
-        setChannelMessages={setChannelMessages}
         {...message}
         />
       ))}
