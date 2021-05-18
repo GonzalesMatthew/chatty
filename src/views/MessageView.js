@@ -23,7 +23,7 @@ export default function MessageView({ user }) {
         {...message}
         />
       ))}
-      <MessageInput user={user} setChannelMessages={setChannelMessages} />
+      <MessageInput user={user} setChannelMessages={setChannelMessages} messageId={null} text={''}/>
     </div>
   );
 }
