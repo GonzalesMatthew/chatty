@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
   Navbar,
   Nav,
-  Button,
-  NavbarToggler,
-  Collapse
+  Button
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/auth';
 import ModalContainer from './forms/ModalContainer';
@@ -18,15 +16,10 @@ export default function NavBar({
   channelArr,
   setChannelArr
 }) {
-  const [collapsed, setCollapsed] = useState(true);
-  const toggleNavbar = () => setCollapsed(!collapsed);
-
   return (
     <div>
-      <Navbar id="navBar" className="sideNav" light expand="md">
-          <Nav>
-          <NavbarToggler onClick={toggleNavbar} className="mr-2 tog" />
-          <Collapse isOpen={!collapsed} navbar>
+      <Navbar id="navBar" light expand="md">
+          <Nav className="sideNav" navbar>
             <ul className='slackNav'>
               <li className="nav-item">
               <Link id="home-link" className="nav-link" to="/"><img id="logo-img" src={slackerLogo} alt='slack-logo'></img></Link>
@@ -55,7 +48,6 @@ export default function NavBar({
                 </li>
                 }
             </ul>
-            </Collapse>
           </Nav>
       </Navbar>
     </div>
