@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
 import './App.scss';
 import { getChannels } from '../helpers/data/channelData';
+import { createUser, getUserbyUid } from '../helpers/data/userData';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +25,13 @@ function App() {
           uid: authed.uid,
           username: authed.email.split('@')[0]
         };
-        setUser(userInfoObj);
+        getUserbyUid(authed.uid).then((response) => {
+          if (Object.values(response.data).length === 0) {
+            createUser(userInfoObj).then((resp) => setUser(resp));
+          } else {
+            setUser(userInfoObj);
+          }
+        });
         getChannels().then((loadChannelArr) => {
           setChannelArr(loadChannelArr);
         });

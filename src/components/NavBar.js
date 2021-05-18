@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import {
   Navbar,
   Nav,
-  Button,
+  Button
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/auth';
 import ChannelList from '../views/ChannelList';
