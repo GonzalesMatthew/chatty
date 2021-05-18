@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
 import './App.scss';
 import { getChannels } from '../helpers/data/channelData';
-import { createUser, getUserbyUid, updateUser } from '../helpers/data/userData';
+import { createUser, getUserbyUid } from '../helpers/data/userData';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,7 +29,7 @@ function App() {
           if (Object.values(response.data).length === 0) {
             createUser(userInfoObj).then((resp) => setUser(resp));
           } else {
-            updateUser(userInfoObj).then((resp) => setUser(resp));
+            setUser(userInfoObj);
           }
         });
         getChannels().then((loadChannelArr) => {
