@@ -11,6 +11,12 @@ const getUser = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getUserbyUid = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/users.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => resolve(response))
+    .catch((error) => reject(error));
+});
+
 const updateUser = (userObj) => new Promise((resolve, reject) => {
   axios
     .patch(`${dbUrl}/users/${userObj.firebaseKey}.json`, userObj)
@@ -41,4 +47,10 @@ const userCheckIn = (authUser) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export { getUser, userCheckIn };
+export {
+  getUser,
+  getUserbyUid,
+  updateUser,
+  createUser,
+  userCheckIn
+};

@@ -46,8 +46,14 @@ ul {
 #home-link.nav-link {
   padding: 0px;
 }
-#logOutBtn, #logInBtn {
+#logOutBtn {
   position:fixed;
-  bottom: 0;
+  bottom: 10px;
   background-color: $green;
+}
+
+#logInBtn {
+  position:fixed;
+  bottom: 10px;
+  background-color: $yellow;
 }
