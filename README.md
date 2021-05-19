@@ -1,5 +1,5 @@
 # Chatty (AKA Slacker)
-![header image](https://i.imgur.com/rolRufS.png)
+![header image](https://i.imgur.com/xlPFw89.png)
 ## Wireframe
 ![wireframe](https://i.imgur.com/uUa7vMT.png)
 ## ERD
