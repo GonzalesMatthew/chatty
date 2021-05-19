@@ -1,6 +1,7 @@
 // index.scss
 @import './variables';
-
-body {
-  background-color: $favColor;
-}
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import './navbar';
+@import './modalContainer';
+@import './channelList';
+@import './channelPopup';

@@ -1,0 +1,18 @@
+// _channelList.scss
+
+.channel-list i {
+  margin: 0 5px 0 5px;
+  position: absolute;
+  right: 5px;
+}
+
+.channel-list li {
+  max-width: 90%; 
+  overflow: hidden;
+  padding-left: 1em;
+  text-indent: -.65em;
+}
+
+.add-channel-link {
+  cursor: pointer;
+}

@@ -1,20 +1,35 @@
-# Slack Clone Group Project
-Your group will be creating a Slack clone. The features your team will build have already been added to your backlog in the "projects" section of this repo. This application should demonstrate your skills in:
-- React JS
-- Firebase
-- Asynchronous code
-- User Specific Data
-- Debugging
+# Chatty (AKA Slacker)
 
-## Requirements
-* Clean code - Single Responsibility Principle!
-* Balanced GitHub Contributions
-* Completely planned out. Must fully complete milestones before moving to another.
-* SASS and Bootstrap for Styling
-* No errors - linters should be clean
+## Wireframe
+![wireframe](https://i.imgur.com/uUa7vMT.png)
+## ERD
+https://dbdiagram.io/d/606d049decb54e10c33f0196
 
-## Interacting With Your Product Owner
-Your group has been designated a product owner (one of the instructors). This product owner has the overall vision of the application and must approve your tickets before you start working on them. When you complete the MVP tickets in your backlog, you should reach out to your product owner to recieve tickets for additional features. Note that this project is often used as a portfolio project for students, so you and your team should push yourselves to get to the "game changer" bonus features, but only after you have a strong MVP.
+## Technologies
+- React
+- React Router
+- Vanilla Javascript
+- HTML
+- SCSS
+- Bootstrap/Reactstrap
+- Firebase authentication and realtime databse
+- Deployed via Netlify
 
+## User Stories
+- As a user I should be able to log in to the app
+- As a user I should be able to create a channel
+- As a user I should be able to click on a channel and see that channel's messages
+- As a user I should be able to post a message to a channel
+- As a user I should be able to edit a message
+- As a user I should be able to delete a message
+- As a user I should see what time a message was posted
+- As a user I should be able to log out of the app
 
-Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/view/page/a3bd0c733) for this application on Moqups.com. You can make your final interface as fancy as you like, but keep the general layout similar to the wireframe.
+## Stretch Goals
+coming soon
+
+## Contributors 
+coming soon
+
+## Loom Videos
+coming soon
