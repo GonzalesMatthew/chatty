@@ -6,10 +6,10 @@ body {
 
 .App {
   margin-left: 260px;
+  margin-top: 50px;
 }
 
 .greeting {
-  margin-top: 50px;
   color: $purple;
 }
 
@@ -56,4 +56,48 @@ ul {
   position:fixed;
   bottom: 10px;
   background-color: $yellow;
+}
+
+#message-card {
+  border: none;
+  width: 60rem;
+}
+
+#message-text {
+  margin-top: 10px;
+  color: $purple;
+}
+
+#user-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#user-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+#delete-btn {
+  background-color: $purple;
+  margin: 3px;
+}
+
+#edit-btn {
+  background-color: $purple;
+  margin: 3px;
+}
+
+#form {
+  width: 60rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#submit-btn {
+  background-color: $purple;
 }

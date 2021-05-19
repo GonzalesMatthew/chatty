@@ -32,15 +32,19 @@ export default function Messages({ setChannelMessages, ...message }) {
   };
 
   return (
-    <Card body>
-      <img src={localUserObj[0]?.profileImage} width='50px'/>
+    <Card id="message-card" body>
+      <div id="user-info">
+      <img id="user-img" src={localUserObj[0]?.profileImage} />
       <CardTitle tag = "h5">{localUserObj[0]?.fullName}</CardTitle>
-      <CardText>{message.text}</CardText>
+      </div>
+      <CardText id="message-text">{message.text}</CardText>
       <CardText>{moment(message.date).fromNow()}</CardText>
-      <Button onClick={() => handleClick('delete')}>Delete</Button>
-      <Button onClick={() => handleClick('edit')}>
+      <div id="card-btn-div">
+      <Button id="delete-btn" onClick={() => handleClick('delete')}>Delete</Button>
+      <Button id="edit-btn" onClick={() => handleClick('edit')}>
         {editing ? 'Cancel' : 'Edit'}
       </Button>
+      </div>
       {
         editing && <MessageInput
           text={message.text}
