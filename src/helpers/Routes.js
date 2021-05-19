@@ -1,6 +1,6 @@
-import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../views/Home';
 import MessageView from '../views/MessageView';
 import ModalContainer from '../components/forms/ModalContainer';

@@ -4,11 +4,13 @@ import {
   Form, InputGroup, Input, InputGroupAddon, Button
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { createMessage } from '../helpers/data/messageData';
+import { createMessage, updateMessage } from '../helpers/data/messageData';
 
-export default function MessageInput({ user, setChannelMessages }) {
+export default function MessageInput({
+  user, setChannelMessages, messageId, text
+}) {
   const { firebaseKey } = useParams();
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(text);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +22,11 @@ export default function MessageInput({ user, setChannelMessages }) {
       uid: user.uid,
     };
     setMessage('');
-    createMessage(messageObj).then(setChannelMessages);
+    if (messageId) {
+      updateMessage(messageObj, firebaseKey, messageId).then(setChannelMessages);
+    } else {
+      createMessage(messageObj).then(setChannelMessages);
+    }
   };
 
   return (
@@ -44,4 +50,7 @@ export default function MessageInput({ user, setChannelMessages }) {
 MessageInput.propTypes = {
   user: PropTypes.any,
   setChannelMessages: PropTypes.any,
+  firebaseKey: PropTypes.any,
+  text: PropTypes.string,
+  messageId: PropTypes.string
 };

@@ -11,9 +11,9 @@ const getChannelMessages = (channelId) => new Promise((resolve, reject) => {
 });
 
 // MAKE SURE TO INCLUDE FIREBASE KEY IN MESSAGE OBJECT
-const updateMessage = (messageObj, channelId) => new Promise((resolve, reject) => {
+const updateMessage = (messageObj, channelId, firebaseKey) => new Promise((resolve, reject) => {
   axios
-    .patch(`${dbUrl}/messages/${messageObj.firebaseKey}.json`, messageObj)
+    .patch(`${dbUrl}/messages/${firebaseKey}.json`, messageObj)
     .then(() => resolve(getChannelMessages(channelId)))
     .catch((error) => reject(error));
 });
@@ -22,7 +22,7 @@ const createMessage = (messageObj) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/messages.json`, messageObj)
     .then((response) => {
-      resolve(updateMessage({ firebaseKey: response.data.name }, messageObj.channelId));
+      resolve(updateMessage({ firebaseKey: response.data.name }, messageObj.channelId, response.data.name));
     })
     .catch((error) => reject(error));
 });
