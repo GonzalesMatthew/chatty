@@ -5,6 +5,9 @@
 ## ERD
 https://dbdiagram.io/d/606d049decb54e10c33f0196
 
+## Deployed Site
+![App](https://team-project-chatty.netlify.app/)
+
 ## Technologies
 - React
 - React Router
@@ -31,5 +34,5 @@ https://dbdiagram.io/d/606d049decb54e10c33f0196
 [Hunter Juneau](https://github.com/HunterJuneau)
 [John Maple](https://github.com/Greenfin17)
 
-## Loom Videos
-coming soon
+## Loom Video
+![Video Walkthrough](https://www.loom.com/share/8593b3fcbce645849917c64d3e17e6be)
